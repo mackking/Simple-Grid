@@ -1,19 +1,14 @@
-/*
-  Simple Grid
-  Learn More - http://dallasbass.com/simple-grid-a-lightweight-responsive-css-grid/
-  Project Page - http://thisisdallas.github.com/Simple-Grid/
-  Author - Dallas Bass
-  Site - dallasbass.com
-*/
+/** == Simple Grid ==
+    Learn More - http://dallasbass.com/simple-grid-a-lightweight-responsive-css-grid/
+    Project Page - http://thisisdallas.github.com/Simple-Grid/
+    Author - Dallas Bass
+    Site - dallasbass.com
+ **/
 
 *, *:after, *:before {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-}
-
-body {
-	margin: 0px;
 }
 
 [class*='col-'] {
@@ -27,20 +22,22 @@ body {
 
 .grid {
 	width: 100%;
-	max-width: 1140px;
-	min-width: 755px;
 	margin: 0 auto;
-	overflow: hidden;
+	*zoom: 1; /* IE 6/7 hack */
+}
+
+.grid:before,
+.grid:after {
+	content: " ";
+	display: table;
 }
 
 .grid:after {
-	content: "";
-	display: table;
 	clear: both;
 }
 
 .grid-pad {
-	padding: 20px 0 0px 20px;
+	padding: 20px 0 20px 20px;
 }
 
 .grid-pad > [class*='col-']:last-of-type {
@@ -174,17 +171,21 @@ body {
 	width: 100%;
 }
 
-
+/* Media query to completely linearize the content. Adjust max-width to desired width. */
 @media handheld, only screen and (max-width: 767px) {
 
 	
 	.grid {
 		width: 100%;
 		min-width: 0;
-		margin-left: 0px;
-		margin-right: 0px;
-		padding-left: 0px;
-		padding-right: 0px;
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.grid-pad {
+		padding: 10px 0;
 	}
 	
 	[class*='col-'],
@@ -198,4 +199,5 @@ body {
 		padding-left: 20px;
 		padding-right: 20px;
 	}
+
 }
